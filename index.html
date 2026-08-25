@@ -1,0 +1,537 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Ophthalmology Society of Nigeria — Member Registration, Annual Dues Payment, and Conference Registration for ASO 2026 Abuja." />
+  <meta name="theme-color" content="#0B1F3A" />
+  <title>OSN Member Portal — Registration &amp; Dues</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Inline additions for hero rate display & countdown -->
+  <style>
+    /* hero rate display */
+    .hero-rate-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 9px 0;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+      font-size: 14px;
+    }
+    .hero-rate-row:last-of-type { border-bottom: none; }
+    .hero-rate-label { color: rgba(255,255,255,.65); }
+    .hero-rate-amount { font-family: 'Playfair Display', serif; font-weight: 700; color: #fff; }
+    .hero-rate-tier {
+      margin-top: 12px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-align: center;
+      padding: 6px 12px;
+      border-radius: 100px;
+    }
+    .hero-rate-tier--early { background: rgba(14,124,106,.3); color: #6EE7B7; }
+    .hero-rate-tier--mid   { background: rgba(201,168,76,.25); color: #E8C96A; }
+    .hero-rate-tier--late  { background: rgba(220,38,38,.25); color: #FCA5A5; }
+
+    /* countdown */
+    .countdown-row {
+      display: flex;
+      gap: 18px;
+      justify-content: center;
+      margin-top: 28px;
+      flex-wrap: wrap;
+    }
+    .countdown-block { text-align: center; min-width: 58px; }
+    .countdown-block .num {
+      font-family: 'Playfair Display', serif;
+      font-size: 38px;
+      font-weight: 900;
+      color: #C9A84C;
+      line-height: 1;
+    }
+    .countdown-block .lbl {
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.45);
+      margin-top: 4px;
+    }
+    .countdown-sep {
+      font-size: 28px;
+      color: #C9A84C;
+      font-weight: 300;
+      padding-top: 2px;
+      align-self: flex-start;
+      margin-top: 4px;
+    }
+
+    /* stagger card animation delays */
+    [data-reveal]:nth-child(2) { transition-delay: .08s !important; }
+    [data-reveal]:nth-child(3) { transition-delay: .16s !important; }
+  </style>
+</head>
+<body>
+
+  <!-- ══ NOTICE BANNER ══════════════════════════════════════ -->
+  <div class="notice-banner" role="banner">
+    🔒 This is a <span class="highlight">verified OSN portal</span>. All forms are secured and managed by the OSN Secretariat. · Need help? Email <span class="highlight">cyril.obasuyi@osnnigeria.org</span>
+  </div>
+
+
+  <!-- ══ NAVBAR ═════════════════════════════════════════════ -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="navbar-brand">
+      <div class="brand-logo" aria-hidden="true">OSN</div>
+      <div class="brand-text">
+        <div class="name">Ophthalmology Society of Nigeria</div>
+        <div class="tagline">Temporary Member Services Portal</div>
+      </div>
+    </div>
+    <div class="navbar-actions">
+      <a href="#actions" class="nav-link">Register</a>
+      <a href="#dues" class="nav-link">Dues</a>
+      <a href="#conference" class="nav-link">Conference</a>
+      <a href="#help" class="btn btn-outline-gold btn-sm">Get Help</a>
+    </div>
+  </nav>
+
+
+  <!-- ══ HERO ═══════════════════════════════════════════════ -->
+  <section class="hero" aria-labelledby="hero-heading">
+    <div class="container">
+      <div class="hero-inner">
+
+        <!-- LEFT: heading + CTAs -->
+        
+
+          <h1 id="hero-heading">
+            OSN Member
+            <span class="accent">Services Portal</span>
+          </h1>
+
+          <p class="hero-subtitle">
+            Register as a new member, pay your annual dues, and sign up for the
+            <strong style="color:#fff">ASO 2026 AGM &amp; Scientific Conference</strong>
+            in Abuja.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#actions" class="btn btn-gold btn-lg">
+              Get Started
+              <svg class="btn-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+            </a>
+            <a href="#conference" class="btn btn-outline-gold btn-lg">
+              ABUJA ASO 2026
+            </a>
+          </div>
+        </div>
+
+        <!-- RIGHT: info card -->
+        <div class="hero-card" aria-label="Current membership rates and key facts">
+          <div class="hero-card-title">Current Membership Dues</div>
+          <div id="hero-rate-info">
+            <!-- Populated by JS -->
+            <div class="hero-rate-row">
+              <span class="hero-rate-label">Consultant / Diplomate</span>
+              <span class="hero-rate-amount">₦80,000/yr</span>
+            </div>
+            <div class="hero-rate-row">
+              <span class="hero-rate-label">Associate Member</span>
+              <span class="hero-rate-amount">₦40,000/yr</span>
+            </div>
+           
+          </div>
+
+          
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══ STOPGAP NOTICE ═════════════════════════════════════ -->
+  <div class="stopgap-strip" role="note" aria-label="Interim portal notice">
+    <div class="container">
+      <p>
+        ⚡ <strong>Interim Portal:</strong>
+        This is a temporary member services page. 
+      </p>
+    </div>
+  </div>
+
+
+  
+  <!-- ══ MAIN ACTIONS ═══════════════════════════════════════ -->
+  <section class="actions-section" id="actions" aria-labelledby="actions-heading">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">Member Services</div>
+        <h2 class="section-title" id="actions-heading">What would you like to do?</h2>
+      
+      </div>
+
+      <div class="actions-grid">
+
+        <!-- CARD 1 — New Member -->
+        <div class="action-card action-card--new" data-action="newMember" data-reveal>
+          <div class="card-icon-wrap">🆕</div>
+          <div class="card-number">NEW MEMBERS</div>
+          <h3>New Member Registration<br>&amp; Dues Payment</h3>
+          <p>
+            Not yet an OSN member? Register your account and pay your first
+            year's annual dues in a single form.
+          </p>
+          <ul class="card-checklist">
+            <li>Complete your member profile</li>
+            <li>Select your membership category</li>
+            <li>Pay your annual dues via Paystack</li>
+           
+          </ul>
+          <div class="card-divider"></div>
+          <button
+            class="btn btn-primary btn-full"
+            onclick="openForm('newMember')"
+            aria-label="Open new member registration form">
+            Register as New Member
+            <svg class="btn-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"/><path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"/></svg>
+          </button>
+          <div class="card-note">
+            <svg width="12" height="12" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/></svg>
+            Opens a secure Google Form
+          </div>
+        </div>
+
+        <!-- CARD 2 — Returning Member Dues -->
+        <div class="action-card action-card--dues" data-action="payDues" data-reveal>
+          <div class="card-icon-wrap">💳</div>
+          <div class="card-number">OLD MEMBERS</div>
+          <h3>Pay Annual Dues —<br>Returning Members</h3>
+          <p>
+            Already an OSN member? Renew your membership for the current year.
+          
+          </p>
+          <ul class="card-checklist">
+           
+            <li>Confirm your membership category</li>
+            <li>Pay the current rate via Paystack</li>
+            <li>Receive instant payment confirmation</li>
+          </ul>
+          <div class="card-divider"></div>
+          <button
+            class="btn btn-gold btn-full"
+            onclick="openForm('payDues')"
+            aria-label="Open annual dues payment form for returning members">
+            Pay My Annual Dues
+            <svg class="btn-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z"/><path fill-rule="evenodd" d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z" clip-rule="evenodd"/></svg>
+          </button>
+          <div class="card-note">
+            <svg width="12" height="12" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/></svg>
+            Opens a secure Google Form
+          </div>
+        </div>
+
+        <!-- CARD 3 — Conference (featured) -->
+        <div class="action-card action-card--conf action-card--featured" data-action="conference" data-reveal>
+          <div class="featured-badge">Now Open</div>
+          <div class="card-icon-wrap">🎓</div>
+          <div class="card-number">CONFERENCE REGISTRATION</div>
+          <h3>OSN ABUJA ASO 2026 AGM &amp;<br>Scientific Conference</h3>
+          <p>
+            Register for the OSN 2026 Annual General
+            Meeting and Scientific Conference in <strong>Abuja, Nigeria</strong>.
+            Conference registration is <strong>free for all financially up-to-date members</strong>.
+          </p>
+          <ul class="card-checklist">
+            <li>Open to all paid-up OSN members</li>
+            <li>Receive your unique registration number</li>
+            <li>Access to all plenary and scientific sessions</li>
+            <li>CME credits for attending sessions</li>
+          </ul>
+          <div class="card-divider"></div>
+          <button
+            class="btn btn-emerald btn-full"
+            onclick="openForm('conference')"
+            aria-label="Open conference registration form">
+            Register for ASO 2026 Abuja
+            <svg class="btn-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"/><path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"/></svg>
+          </button>
+          <div class="card-note">
+            <svg width="12" height="12" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/></svg>
+            Opens a secure Google Form · Membership must be current
+          </div>
+        </div>
+
+      </div><!-- /actions-grid -->
+    </div>
+  </section>
+
+
+  <!-- ══ DUES RATES TABLE ════════════════════════════════════ -->
+  <section class="rates-section" id="dues" aria-labelledby="dues-heading">
+    <div class="container">
+      <div class="section-eyebrow">Annual Dues</div>
+      <h2 class="section-title" id="dues-heading">Current Membership Rates</h2>
+      <p class="rates-subtitle">
+        Your Annual Dues Help the OSN Function.
+      
+      </p>
+
+      <div class="rates-grid">
+
+        <!-- Consultant / Diplomate -->
+        <div class="rate-card">
+          <div class="cat-name">Consultant / Diplomate</div>
+          <div class="cat-desc">Consultants, Fellows &amp; Diplomates</div>
+          <div class="rate-tiers">
+            <div class="rate-tier early">
+              <span class="period">Jan 1 – June 30th</span>
+              <span class="amount">₦80,000</span>
+            </div>
+            
+            <div class="rate-tier late">
+              <span class="period">From July 1st</span>
+              <span class="amount">₦100,000</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Associate Member -->
+        <div class="rate-card">
+          <div class="cat-name">Associate Member</div>
+          <div class="cat-desc">Residents,and Yet to be inducted Fellows </div>
+          <div class="rate-tiers">
+            <div class="rate-tier early">
+              <span class="period">Jan 1 – June 30th</span>
+              <span class="amount">₦40,000</span>
+            </div>
+           
+            <div class="rate-tier late">
+              <span class="period">From July 1st</span>
+              <span class="amount">₦50,000</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+  </section>
+
+
+  <!-- ══ CONFERENCE SECTION ══════════════════════════════════ -->
+  <section class="conference-section" id="conference" aria-labelledby="conf-heading">
+    <div class="container">
+      <div class="conference-inner">
+
+        <!-- LEFT: details -->
+        <div>
+          <div class="section-eyebrow">OSN ABUJA ASO 2026</div>
+          <h2 class="section-title" id="conf-heading">
+            Annual Scientific Conference &amp; Annual General Meeting
+          </h2>
+          <p class="section-sub" style="margin: 0 0 32px; text-align: left;">
+            Join ophthalmologists from across Nigeria and beyond for four days of
+            scientific sessions, workshops, and fellowship at the OSN's flagship annual event.
+          </p>
+
+          <div class="conf-details">
+            <div class="conf-detail">
+              <div class="conf-detail-icon">📍</div>
+              <div class="conf-detail-text">
+                <div class="label">Location</div>
+                <div class="value">Abuja, Nigeria</div>
+                <div class="sub">Venue: Nigerian Armed Forces Conference Centre and Suites, Asokoro, Abuja</div>
+              </div>
+            </div>
+            <div class="conf-detail">
+              <div class="conf-detail-icon">🎓</div>
+              <div class="conf-detail-text">
+                <div class="label">Registration Fee</div>
+                <div class="value">Free for all paid-up members</div>
+                <div class="sub">Annual dues must be current to register</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Countdown -->
+          <div style="margin-top: 36px;">
+            <div style="font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--emerald); margin-bottom: 10px;">Counting Down to ASO 2026</div>
+            <div class="countdown-row" role="timer" aria-label="Conference countdown">
+              <div class="countdown-block">
+                <div class="num" id="cd-days" style="color: var(--navy)">--</div>
+                <div class="lbl" style="color: var(--g400)">Days</div>
+              </div>
+              <div class="countdown-sep" style="color: var(--navy)">:</div>
+              <div class="countdown-block">
+                <div class="num" id="cd-hours" style="color: var(--navy)">--</div>
+                <div class="lbl" style="color: var(--g400)">Hours</div>
+              </div>
+              <div class="countdown-sep" style="color: var(--navy)">:</div>
+              <div class="countdown-block">
+                <div class="num" id="cd-mins" style="color: var(--navy)">--</div>
+                <div class="lbl" style="color: var(--g400)">Mins</div>
+              </div>
+              <div class="countdown-sep" style="color: var(--navy)">:</div>
+              <div class="countdown-block">
+                <div class="num" id="cd-secs" style="color: var(--navy)">--</div>
+                <div class="lbl" style="color: var(--g400)">Secs</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: register card -->
+        <div>
+          <div class="conf-register-card">
+            
+            <h3>Register for<br>ABUJA ASO 2026</h3>
+            <p> Registration is free for financially up-to-date members</p>
+            
+
+            <button
+              class="btn btn-emerald btn-full btn-lg"
+              onclick="openForm('conference')"
+              aria-label="Register for ASO 2026 Abuja conference">
+              Register Now
+              <svg class="btn-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+            </button>
+
+            <div style="margin-top: 20px; padding-top: 18px; border-top: 1px solid var(--g200);">
+              <p style="font-size: 13px; color: var(--g400); margin: 0 0 16px;">
+               <b> Not yet a member or dues unpaid? Complete one of the steps below first:</b>
+              </p>
+              <div style="display: flex; flex-direction: column; gap: 10px;">
+                <button
+                  class="btn btn-outline btn-full btn-sm"
+                  onclick="openForm('newMember')"
+                  aria-label="Register as new member first">
+                  I'm a New Member — Register and Pay 2026 annual dues
+                </button>
+                <button
+                  class="btn btn-outline btn-full btn-sm"
+                  onclick="openForm('payDues')"
+                  aria-label="Pay annual dues first">
+                  I'm an Old member-Pay 2026 Annual Dues First
+                </button>
+              </div>
+            </div>
+
+            
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══ HELP SECTION ═══════════════════════════════════════ -->
+  <section class="help-section" id="help" aria-labelledby="help-heading">
+    <div class="container">
+      <div class="help-inner">
+        <div class="help-text">
+          <h2 id="help-heading">Need Assistance?</h2>
+          <p>
+            The OSN Secretariat is available to help with membership queries,
+            payment issues, and conference registration. Contact us through
+            any of the following channels.
+          </p>
+        </div>
+        <div class="help-contacts">
+          <div class="help-contact">
+            <div class="icon">✉️</div>
+            <span>cyril.obasuyi@osnnigeria.org</span>
+          </div>
+          <div class="help-contact">
+            <div class="icon">🌐</div>
+            <span>www.osnnigeria.org</span>
+          </div>
+          <div class="help-contact">
+            <div class="icon">📲</div>
+            <span>08169209533</span>
+             <span>08055505676</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══ FOOTER ═════════════════════════════════════════════ -->
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="brand-logo" aria-hidden="true">OSN</div>
+          <div class="tagline-text" style="margin-top: 10px;">
+            Ophthalmology Society of Nigeria<br>
+            Advancing eye health across Nigeria.
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <div class="footer-col">
+            <h4>Member Actions</h4>
+            <ul>
+              <li><a onclick="openForm('newMember')">New Member Registration</a></li>
+              <li><a onclick="openForm('payDues')">Pay Annual Dues</a></li>
+              <li><a onclick="openForm('conference')">Conference Registration</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="#actions">Member Services</a></li>
+              <li><a href="#dues">Dues &amp; Rates</a></li>
+              <li><a href="#conference">ASO 2026</a></li>
+              <li><a href="#help">Contact Secretariat</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>OSN</h4>
+            <ul>
+              <li><a href="https://www.osnnigeria.org" target="_blank" rel="noopener">Main Website</a></li>
+              <li><a href="https://journals.lww.com/njoo" target="_blank" rel="noopener">NJO Journal</a></li>
+              <li><a href="https://www.yofosn.org" target="_blank" rel="noopener">YOF Network</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-divider"></div>
+
+      <div class="footer-bottom">
+        <p>© <span id="footer-year">2026</span> Ophthalmology Society of Nigeria. All rights reserved.</p>
+        <p>© <span id="footer-year">2026</span> Designed by CyrilObasuyi for Kyrios Logic.</p>
+       <div class="interim-badge">⚡ Interim Member Portal</div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ══ SCROLL TO TOP ══════════════════════════════════════ -->
+  <button id="scroll-top" aria-label="Scroll to top of page" title="Back to top">↑</button>
+
+
+  <!-- ══ JAVASCRIPT ═════════════════════════════════════════ -->
+ 
+
+  <!-- Set hero year badge -->
+  <script>
+    (function () {
+      const el = document.getElementById('current-year-badge');
+      if (el) el.textContent = new Date().getFullYear();
+    })();
+  </script>
+ <script src="main.js"></script>
+</body>
+</html>
