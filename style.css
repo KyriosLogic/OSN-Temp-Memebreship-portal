@@ -481,7 +481,7 @@ section {
 
 .actions-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 28px;
   align-items: stretch;
 }
@@ -527,6 +527,10 @@ section {
   background: #eff9f7;
   --card-accent: var(--emerald);
 }
+.action-card--accomp {
+  background: #f0fbf8;
+  --card-accent: var(--emerald-l);
+}
 
 .action-card--featured {
   border: 2px solid var(--emerald);
@@ -570,6 +574,9 @@ section {
 .action-card--conf .card-icon-wrap {
   background: rgba(14, 124, 106, 0.12);
 }
+.action-card--accomp .card-icon-wrap {
+  background: rgba(12, 99, 83, 0.12);
+}
 
 .card-number {
   font-size: 11px;
@@ -587,6 +594,9 @@ section {
 }
 .action-card--conf .card-number {
   color: var(--emerald);
+}
+.action-card--accomp .card-number {
+  color: var(--emerald-l);
 }
 
 .action-card h3 {
@@ -638,6 +648,9 @@ section {
 }
 .action-card--conf .card-checklist li::before {
   color: var(--emerald);
+}
+.action-card--accomp .card-checklist li::before {
+  color: var(--emerald-l);
 }
 
 .card-divider {
