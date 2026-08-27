@@ -11,6 +11,7 @@
     newMember: "https://forms.gle/XzCTD5pgWdmZHg2PA",
     payDues: "https://forms.gle/XzCTD5pgWdmZHg2PA",
     conference: "https://forms.gle/mLz4ipEcmgfRmJFL8",
+    accompanyingPersons: "https://forms.gle/jes6zXcq2nNnx7ry6",
   };
 
   /* ── DUES RATE ENGINE ────────────────────────────────────── */
